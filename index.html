@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <title>VCET Virtual Assistant | Smart Campus Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI-Powered Virtual Assistant for Vidyavardhini's College of Engineering and Technology (VCET), Vasai." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="vcet college logo.jpg" type="image/jpeg" />
+  <!-- Google Fonts for sleek typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient background effects -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+  <div class="bg-pattern"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="logo-wrapper">
+        <img src="vcet college logo.jpg" alt="VCET Logo" class="brand-logo" />
+        <span class="live-dot" title="System Active"></span>
+      </div>
+      <div class="brand-meta">
+        <div class="brand-title-row">
+          <h1 class="brand-name">VCET Virtual Assistant</h1>
+          <span class="version-tag">v2.5 AI</span>
+        </div>
+        <p class="brand-sub">Vidyavardhini's College of Engineering & Technology, Vasai (W)</p>
+      </div>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <button class="nav-btn" id="theme-toggle" title="Toggle Light/Dark Theme">
+        <span class="btn-icon">🌓</span>
+        <span class="btn-text">Theme</span>
+      </button>
+
+      <button class="nav-btn" id="voice-toggle-btn" title="Toggle Voice Responses (Read Aloud)">
+        <span class="btn-icon" id="speech-icon">🔊</span>
+        <span class="btn-text">Voice</span>
+      </button>
+
+      <button class="nav-btn" id="export-chat-btn" title="Export Conversation">
+        <span class="btn-icon">📥</span>
+        <span class="btn-text">Export</span>
+      </button>
+
+      <button class="nav-btn" id="history-btn" title="Saved Chat Sessions">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text">History</span>
+        <span class="badge-count" id="history-count">0</span>
+      </button>
+
+      <button class="nav-btn danger-hover" id="clear-btn" title="Clear Current Chat">
+        <span class="btn-icon">🗑️</span>
+        <span class="btn-text">Clear</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+    <!-- Left Explorer & Info Sidebar -->
+    <aside class="explorer-card">
+      <div class="explorer-header">
+        <div class="explorer-title-wrap">
+          <span class="explorer-icon">⚡</span>
+          <div>
+            <h2>Campus Explorer</h2>
+            <p>Select a category or quick prompt</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Category Tabs -->
+      <div class="category-tabs" id="category-tabs">
+        <button class="cat-tab active" data-category="all">All</button>
+        <button class="cat-tab" data-category="admissions">🎓 Admission</button>
+        <button class="cat-tab" data-category="academics">📚 Branches</button>
+        <button class="cat-tab" data-category="placements">💼 Placements</button>
+        <button class="cat-tab" data-category="campus">🏛️ Campus</button>
+        <button class="cat-tab" data-category="contact">📞 Contact</button>
+      </div>
+
+      <!-- Search prompt filter -->
+      <div class="chip-search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="chip-filter-input" placeholder="Filter questions..." />
+      </div>
+
+      <!-- Interactive Quick Chips (Data-driven) -->
+      <div class="quick-chip-container" id="quick-chips">
+        <!-- Dynamically populated or static chips -->
+        <button class="quick-chip" data-category="academics" data-question="What engineering branches and intake are offered at VCET?">
+          <span class="chip-emoji">💻</span> Branches & Intake
+        </button>
+        <button class="quick-chip" data-category="admissions" data-question="What is the admission procedure and MHT-CET eligibility for FE?">
+          <span class="chip-emoji">📝</span> Admission & Eligibility
+        </button>
+        <button class="quick-chip" data-category="placements" data-question="What are the highest and average placement packages and top recruiters?">
+          <span class="chip-emoji">💼</span> Placement Statistics
+        </button>
+        <button class="quick-chip" data-category="campus" data-question="How do I reach VCET campus from Vasai Road Railway Station?">
+          <span class="chip-emoji">📍</span> How to Reach VCET
+        </button>
+        <button class="quick-chip" data-category="admissions" data-question="What are the college fees and available scholarships (EBC, TFWS, Caste)?">
+          <span class="chip-emoji">💰</span> Fees & Scholarships
+        </button>
+        <button class="quick-chip" data-category="campus" data-question="What campus facilities, labs, and library are available?">
+          <span class="chip-emoji">🔬</span> Campus & Labs
+        </button>
+        <button class="quick-chip" data-category="campus" data-question="Tell me about VCET annual cultural and technical college fests.">
+          <span class="chip-emoji">🎉</span> College Festivals
+        </button>
+        <button class="quick-chip" data-category="contact" data-question="What is the official contact number, email, and location address?">
+          <span class="chip-emoji">📞</span> Contact Details
+        </button>
+      </div>
+
+      <!-- Key Campus Metrics -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-val">NAAC A</span>
+          <span class="metric-lbl">Accreditation</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">3000+</span>
+          <span class="metric-lbl">Students</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">100+</span>
+          <span class="metric-lbl">Recruiters</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-val">1994</span>
+          <span class="metric-lbl">Established</span>
+        </div>
+      </div>
+
+      <!-- External Links -->
+      <div class="quick-links">
+        <a href="https://vcet.edu.in" target="_blank" rel="noopener noreferrer" class="link-item">
+          <span>🌐 Official College Website</span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Right Chat Assistant Card -->
+    <section class="chat-card">
+      <!-- Chat Card Header -->
+      <div class="chat-card-header">
+        <div class="chat-header-info">
+          <div class="avatar-ring">
+            <img src="vcet college logo.jpg" alt="VCET Bot" class="avatar-img" />
+            <span class="online-indicator"></span>
+          </div>
+          <div>
+            <div class="chat-title-group">
+              <h2 class="chat-title">VCET AI Assistant</h2>
+              <span class="status-pill">Active</span>
+            </div>
+            <p class="chat-subtitle">Instant responses for campus, admissions & academics</p>
+          </div>
+        </div>
+
+        <div class="chat-header-meta">
+          <span class="db-status-pill" id="db-indicator" title="Connected to Local Database">
+            <span class="db-dot"></span> Local DB Saved
+          </span>
+        </div>
+      </div>
+
+      <!-- Chat Messages Scroll Area -->
+      <div class="chat-messages" id="chatbox">
+        <!-- Messages will be rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Suggested followup pill bar -->
+      <div class="followup-tray" id="followup-tray"></div>
+
+      <!-- Chat Input Area -->
+      <div class="chat-input-container">
+        <div class="input-glass-box">
+          <!-- Voice Dictation Button -->
+          <button id="voice-btn" class="input-tool-btn" title="Voice Input (Speech-to-Text)">
+            <span class="mic-icon">🎙️</span>
+          </button>
+
+          <textarea
+            id="chat-input"
+            rows="1"
+            placeholder="Ask about admissions, branches, placements, fees..."
+            maxlength="500"
+          ></textarea>
+
+          <div class="input-controls-right">
+            <!-- Send Button -->
+            <button id="send-btn" class="send-action-btn" title="Send Question (Enter)">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-footer-info">
+          <span class="shortcut-tip">💡 Tip: Press <strong>Enter</strong> to send, <strong>Shift + Enter</strong> for a new line</span>
+          <span class="char-counter"><span id="char-count">0</span> / 500</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- History Sidebar Drawer -->
+  <div id="history-backdrop" class="drawer-backdrop"></div>
+  <aside id="history-drawer" class="history-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <span class="drawer-icon">🗄️</span>
+        <div>
+          <h3>Conversation History</h3>
+          <p>Stored locally in your browser</p>
+        </div>
+      </div>
+      <button id="close-history-btn" class="drawer-close-btn" title="Close History">✕</button>
+    </div>
+
+    <div class="drawer-actions">
+      <button id="new-session-btn" class="drawer-btn primary">
+        <span>➕ New Conversation</span>
+      </button>
+      <button id="clear-all-history-btn" class="drawer-btn danger">
+        <span>🗑️ Clear All</span>
+      </button>
+    </div>
+
+    <div class="history-session-list" id="history-session-list">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </aside>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-shelf" class="toast-shelf"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

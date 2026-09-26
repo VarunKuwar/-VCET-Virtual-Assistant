@@ -1,0 +1,1352 @@
+/* ==========================================================================
+   VCET Virtual Assistant - Lavender, Blue, White & Orange Design System
+   ========================================================================== */
+
+/* Design Tokens & Theme Variables */
+:root {
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Global Color Palettes */
+  --c-lavender-50: #f5f3ff;
+  --c-lavender-100: #ede9fe;
+  --c-lavender-200: #ddd6fe;
+  --c-lavender-300: #c4b5fd;
+  --c-lavender-400: #a78bfa;
+  --c-lavender-500: #8b5cf6;
+  --c-lavender-600: #7c3aed;
+  --c-lavender-700: #6d28d9;
+  --c-lavender-900: #2e1065;
+  --c-lavender-midnight: #120e24;
+  --c-lavender-deep: #191236;
+
+  --c-blue-500: #3b82f6;
+  --c-blue-600: #2563eb;
+  --c-blue-700: #1d4ed8;
+
+  --c-white: #ffffff;
+  --c-white-dim: #f8fafc;
+
+  --c-orange-400: #fb923c;
+  --c-orange-500: #f97316;
+  --c-orange-600: #ea580c;
+  --c-orange-700: #c2410c;
+
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease-out;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   Theme 1: Lavender Dark Mode (Default)
+   Rich midnight lavender atmosphere with royal blue, crisp white & orange highlights
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-app: var(--c-lavender-midnight);
+  --bg-card: rgba(25, 18, 54, 0.76);
+  --bg-card-solid: #171131;
+  --bg-card-hover: rgba(43, 31, 88, 0.85);
+  --bg-input: rgba(18, 14, 36, 0.9);
+  
+  --border-subtle: rgba(196, 181, 253, 0.14);
+  --border-active: rgba(167, 139, 250, 0.6);
+  --border-orange: rgba(249, 115, 22, 0.5);
+
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+  --text-dim: #94a3b8;
+  --text-lavender: #ddd6fe;
+
+  --accent-lavender: #a78bfa;
+  --accent-blue: #3b82f6;
+  --accent-orange: #f97316;
+  --accent-white: #ffffff;
+
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #38bdf8 100%);
+  --sunset-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #7c3aed 100%);
+  --user-bubble-bg: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --bot-bubble-bg: rgba(30, 22, 64, 0.82);
+  --bot-bubble-border: rgba(196, 181, 253, 0.18);
+
+  --shadow-card: 0 20px 40px -15px rgba(5, 3, 15, 0.7), 0 0 1px 1px rgba(196, 181, 253, 0.1);
+  --shadow-glow: 0 0 25px rgba(139, 92, 246, 0.3);
+  --shadow-orange-glow: 0 0 20px rgba(249, 115, 22, 0.35);
+
+  --orb-1-color: rgba(139, 92, 246, 0.28); /* Lavender */
+  --orb-2-color: rgba(37, 99, 235, 0.22);  /* Blue */
+  --orb-3-color: rgba(249, 115, 22, 0.18); /* Orange */
+  --pattern-opacity: 0.04;
+}
+
+/* ==========================================================================
+   Theme 2: Off-White Canvas with Lavender, Blue, White & Orange Accents
+   Clean, warm off-white background with crisp white cards & vibrant accents
+   ========================================================================== */
+[data-theme="light"] {
+  --bg-app: #faf8f5; /* Warm Elegant Off-White Canvas */
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-card-solid: #ffffff;
+  --bg-card-hover: #f8f6f2;
+  --bg-input: #ffffff;
+
+  --border-subtle: rgba(139, 92, 246, 0.16);
+  --border-active: rgba(124, 58, 237, 0.55);
+  --border-orange: rgba(249, 115, 22, 0.5);
+
+  --text-main: #1e1b4b;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --text-lavender: #6d28d9;
+
+  --accent-lavender: #7c3aed;
+  --accent-blue: #2563eb;
+  --accent-orange: #ea580c;
+  --accent-white: #ffffff;
+
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  --sunset-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #7c3aed 100%);
+  --user-bubble-bg: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --bot-bubble-bg: #ffffff;
+  --bot-bubble-border: rgba(139, 92, 246, 0.18);
+
+  --shadow-card: 0 16px 36px -10px rgba(109, 40, 217, 0.08), 0 0 1px 1px rgba(139, 92, 246, 0.08);
+  --shadow-glow: 0 0 25px rgba(124, 58, 237, 0.16);
+  --shadow-orange-glow: 0 0 20px rgba(249, 115, 22, 0.2);
+
+  --orb-1-color: rgba(196, 181, 253, 0.26); /* Soft Lavender */
+  --orb-2-color: rgba(147, 197, 253, 0.22); /* Sky/Blue */
+  --orb-3-color: rgba(254, 215, 170, 0.26); /* Peach/Orange */
+  --pattern-opacity: 0.045;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  overflow: hidden;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   Ambient Background (Lavender, Blue & Orange Orbs)
+   ========================================================================== */
+.glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 550px;
+  height: 550px;
+  background: var(--orb-1-color);
+  top: -120px;
+  left: -80px;
+  animation: floatOrb 20s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: var(--orb-2-color);
+  bottom: -150px;
+  right: -80px;
+  animation: floatOrb 24s ease-in-out infinite alternate-reverse;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: var(--orb-3-color);
+  top: 35%;
+  left: 45%;
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 35px) scale(1.08); }
+  100% { transform: translate(-40px, 60px) scale(0.94); }
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+  background-size: 28px 28px;
+  opacity: var(--pattern-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   Header Component
+   ========================================================================== */
+.app-header {
+  position: relative;
+  z-index: 10;
+  height: 72px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  background: var(--c-white);
+  padding: 3px;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+  border: 2px solid var(--border-subtle);
+}
+
+/* Orange live status indicator */
+.live-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 13px;
+  height: 13px;
+  background: var(--c-orange-500);
+  border: 2px solid var(--bg-card-solid);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--c-orange-500);
+  animation: pulseOrange 2s infinite ease-in-out;
+}
+
+@keyframes pulseOrange {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(249, 115, 22, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-name {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+
+/* Vibrant Orange Version Tag */
+.version-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--c-orange-500);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.brand-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Header Action Buttons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.nav-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+.nav-btn.danger-hover:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+/* Blue & White Badge Count */
+.badge-count {
+  font-size: 0.7rem;
+  background: var(--c-blue-600);
+  color: var(--c-white);
+  padding: 1px 7px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Main Application Layout
+   ========================================================================== */
+.app-container {
+  position: relative;
+  z-index: 5;
+  height: calc(100vh - 72px);
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Left Panel: Campus Explorer (Lavender & Blue Accents)
+   ========================================================================== */
+.explorer-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.explorer-header {
+  margin-bottom: 16px;
+}
+
+.explorer-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.explorer-icon {
+  font-size: 1.3rem;
+  padding: 8px;
+  background: rgba(249, 115, 22, 0.16);
+  color: var(--c-orange-500);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+}
+
+.explorer-header h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.explorer-header p {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* Category Tabs (Lavender & Blue) */
+.category-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-tab {
+  flex-shrink: 0;
+  padding: 6px 13px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card-solid);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.cat-tab:hover {
+  color: var(--text-main);
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+}
+
+.cat-tab.active {
+  background: linear-gradient(135deg, var(--c-lavender-600) 0%, var(--c-blue-600) 100%);
+  color: var(--c-white);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+}
+
+/* Chip Filter Search */
+.chip-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  transition: var(--transition-fast);
+}
+
+.chip-search-bar:focus-within {
+  border-color: var(--c-lavender-500);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
+}
+
+.search-icon {
+  font-size: 0.85rem;
+  color: var(--c-lavender-400);
+}
+
+.chip-search-bar input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+}
+
+.chip-search-bar input::placeholder {
+  color: var(--text-dim);
+}
+
+/* Quick Chips Container */
+.quick-chip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+  margin-bottom: 14px;
+}
+
+.quick-chip-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.quick-chip-container::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+.quick-chip {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-chip:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--c-lavender-400);
+  color: var(--c-white);
+  transform: translateX(3px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.15);
+}
+
+.chip-emoji {
+  font-size: 1rem;
+}
+
+/* Metrics Grid with Orange & Lavender Accents */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.metric-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 9px 10px;
+  text-align: center;
+}
+
+.metric-val {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--c-orange-500);
+}
+
+.metric-lbl {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* External Link */
+.quick-links {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 10px;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.link-item:hover {
+  border-color: var(--c-blue-500);
+  color: var(--c-blue-500);
+}
+
+/* ==========================================================================
+   Right Panel: Chat Container
+   ========================================================================== */
+.chat-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Chat Card Header */
+.chat-card-header {
+  padding: 14px 24px;
+  background: var(--bg-card-solid);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-ring {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  background: var(--c-white);
+  padding: 2px;
+  border: 2px solid var(--c-lavender-400);
+}
+
+/* Glowing Orange Online Indicator */
+.online-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 11px;
+  height: 11px;
+  background: var(--c-orange-500);
+  border: 2px solid var(--bg-card-solid);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--c-orange-500);
+}
+
+.chat-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.status-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--c-orange-500);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+}
+
+.chat-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* Database Pill (Blue & White) */
+.db-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--c-blue-500);
+  border: 1px solid rgba(37, 99, 235, 0.28);
+}
+
+.db-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-blue-500);
+}
+
+/* Chat Messages Area */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* Chat Rows */
+.chat-row {
+  display: flex;
+  gap: 12px;
+  max-width: 82%;
+  animation: messageEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes messageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.chat-row.user-row {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-row.bot-row {
+  align-self: flex-start;
+}
+
+/* Avatars */
+.msg-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Bot Avatar: Lavender to Blue */
+.bot-avatar {
+  background: linear-gradient(135deg, var(--c-lavender-600) 0%, var(--c-blue-600) 100%);
+  color: var(--c-white);
+}
+
+/* User Avatar: Orange to Lavender */
+.user-avatar {
+  background: linear-gradient(135deg, var(--c-orange-500) 0%, var(--c-lavender-600) 100%);
+  color: var(--c-white);
+}
+
+/* Message Bubble */
+.msg-bubble-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.msg-bubble {
+  padding: 12px 16px;
+  border-radius: var(--radius-lg);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  word-break: break-word;
+  position: relative;
+}
+
+/* Bot Bubble: Crisp White/Frosted Lavender Card with Lavender Accent */
+.chat-row.bot-row .msg-bubble {
+  background: var(--bot-bubble-bg);
+  border: 1px solid var(--bot-bubble-border);
+  border-left: 3px solid var(--c-lavender-500);
+  color: var(--text-main);
+  border-top-left-radius: 4px;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.08);
+}
+
+/* User Bubble: Vibrant Blue to Lavender Gradient with Crisp White Text */
+.chat-row.user-row .msg-bubble {
+  background: var(--user-bubble-bg);
+  color: var(--c-white);
+  border-top-right-radius: 4px;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* Rich Content in Bot Bubble */
+.msg-bubble p {
+  margin-bottom: 8px;
+}
+
+.msg-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.msg-bubble strong {
+  color: inherit;
+  font-weight: 700;
+}
+
+.msg-bubble ul, .msg-bubble ol {
+  margin: 6px 0 8px 18px;
+}
+
+.msg-bubble li {
+  margin-bottom: 4px;
+}
+
+.msg-bubble a {
+  color: var(--c-blue-500);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Message Meta & Action Bar */
+.msg-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  padding: 0 4px;
+}
+
+.chat-row.user-row .msg-meta-row {
+  justify-content: flex-end;
+}
+
+.msg-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.msg-bubble-wrap:hover .msg-actions {
+  opacity: 1;
+}
+
+.action-chip {
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+}
+
+.action-chip:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+  transform: scale(1.1);
+}
+
+.action-chip.active-up {
+  color: var(--c-orange-500) !important;
+  font-weight: bold;
+}
+
+.action-chip.active-down {
+  color: #ef4444 !important;
+  font-weight: bold;
+}
+
+/* Typing Indicator Animation */
+.typing-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 18px;
+  background: var(--bot-bubble-bg);
+  border: 1px solid var(--bot-bubble-border);
+  border-left: 3px solid var(--c-lavender-500);
+  border-radius: var(--radius-lg);
+  border-top-left-radius: 4px;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--c-lavender-400);
+  border-radius: 50%;
+  animation: typingPulse 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingPulse {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* Follow-up Suggestions Tray (Orange Sparkle & Lavender Outline) */
+.followup-tray {
+  padding: 4px 24px 8px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.followup-tray::-webkit-scrollbar {
+  display: none;
+}
+
+.followup-pill {
+  flex-shrink: 0;
+  padding: 6px 13px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card-solid);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.followup-pill:hover {
+  border-color: var(--c-orange-500);
+  color: var(--c-orange-500);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.2);
+}
+
+/* ==========================================================================
+   Chat Input Area (Lavender & Blue Box with Sunset Orange CTA)
+   ========================================================================== */
+.chat-input-container {
+  padding: 12px 24px 16px;
+  background: var(--bg-card-solid);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.input-glass-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 8px 12px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-fast);
+}
+
+.input-glass-box:focus-within {
+  border-color: var(--c-lavender-500);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 0 1px rgba(139, 92, 246, 0.4);
+}
+
+.input-tool-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  display: grid;
+  place-items: center;
+}
+
+.input-tool-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--c-orange-500);
+}
+
+.input-tool-btn.listening {
+  color: var(--c-orange-500);
+  animation: micPulseOrange 1.2s infinite ease-in-out;
+}
+
+@keyframes micPulseOrange {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6); }
+  50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+#chat-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: none;
+  max-height: 120px;
+  line-height: 1.45;
+  padding: 4px 0;
+}
+
+#chat-input::placeholder {
+  color: var(--text-dim);
+}
+
+/* Radiant Orange & Lavender Send Action Button */
+.send-action-btn {
+  background: var(--sunset-gradient);
+  border: none;
+  color: var(--c-white);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+  flex-shrink: 0;
+}
+
+.send-action-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.55);
+}
+
+.send-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.input-footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  margin-top: 6px;
+  padding: 0 4px;
+}
+
+/* ==========================================================================
+   History Drawer (Lavender Glass with Orange Actions)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 14, 36, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.history-drawer {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+  background: var(--bg-card-solid);
+  border-left: 1px solid var(--border-subtle);
+  box-shadow: -15px 0 40px rgba(5, 3, 15, 0.6);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.history-drawer.active {
+  right: 0;
+}
+
+.drawer-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drawer-icon {
+  font-size: 1.3rem;
+}
+
+.drawer-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.drawer-header p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.drawer-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.drawer-close-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+}
+
+.drawer-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Orange New Session CTA */
+.drawer-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition-fast);
+}
+
+.drawer-btn.primary {
+  background: var(--sunset-gradient);
+  color: var(--c-white);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.drawer-btn.primary:hover {
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45);
+}
+
+.drawer-btn.danger {
+  background: transparent;
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.drawer-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.history-session-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session-item {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.session-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--c-lavender-400);
+  transform: translateX(-2px);
+}
+
+.session-item.current-active {
+  border-color: var(--c-orange-500);
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.session-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.session-date {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.session-delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.session-delete-btn:hover {
+  color: #ef4444;
+}
+
+.session-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-main);
+}
+
+.session-count {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.no-sessions {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.84rem;
+  padding: 40px 10px;
+}
+
+/* ==========================================================================
+   Toast Shelf Notifications (Orange, Blue, Lavender)
+   ========================================================================== */
+.toast-shelf {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast-msg {
+  pointer-events: auto;
+  background: var(--bg-card-solid);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  animation: toastSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-msg.toast-success {
+  border-left: 4px solid var(--c-orange-500);
+}
+
+.toast-msg.toast-info {
+  border-left: 4px solid var(--c-blue-500);
+}
+
+.toast-msg.toast-warning {
+  border-left: 4px solid var(--c-lavender-500);
+}
+
+.toast-msg.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+@keyframes toastSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 300px 1fr;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 820px) {
+  .app-header {
+    padding: 0 16px;
+  }
+  
+  .brand-sub {
+    display: none;
+  }
+
+  .nav-btn .btn-text {
+    display: none;
+  }
+
+  .app-container {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .explorer-card {
+    display: none; /* Mobile view prioritizes full chat viewport */
+  }
+
+  .chat-row {
+    max-width: 92%;
+  }
+
+  .history-drawer {
+    width: 300px;
+  }
+}
